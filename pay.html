@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="DR css/logo.jpeg" style="border-radius: 50%;" type="image/x-icon">
+  <title>DR | Payment Gateway |</title>
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #fff;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .payment-container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      width: 400px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      text-align: center;
+      border: 1px solid #333;
+    }
+
+    img {
+      width: 100px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      color: #004cff;
+      margin: 5px 0 20px;
+    }
+
+    .pay-btn {
+      margin-top: 15px;
+      padding: 12px;
+      background: #004cff;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="payment-container">
+  <img id="pay-img" src="">
+  <h2 id="pay-title">Loading...</h2>
+  <h3 id="pay-price"></h3>
+
+  <!-- PayPal Button -->
+  <div id="paypal-button-container"></div>
+</div>
+
+<script>
+  // Product data
+  const products = {
+    samplepack: {
+      title: "DR Complete Sample Pack",
+      price: 0.43,
+      img: "certificates/DR SAMPLE PACK.png"
+    },
+    soundpack: {
+      title: "DR Sound Pack | Presets",
+      price: 0.6,
+      img: "DR css/DR SOUND PACK.png"
+    },
+    demand: {
+      title: "DR Beat | Demand |",
+      price: 0,
+      img: "certificates/DEMAND [DR Beat 1].png"
+    },
+    Voxchain: {
+      title: "DR Vocal mix chain | Pro |",
+      price: 1.08,
+      img: "certificates/VMC.png",
+    },
+    DMCP: {
+      title: "DR Vocal mix chain | Pro |",
+      price: 0.7999,
+      img: "certificates/DMCP.png",
+    }
+  };
+
+  // Get product
+  const params = new URLSearchParams(window.location.search);
+  const productKey = params.get("product");
+  const product = products[productKey];
+
+  if (!product) {
+    document.body.innerHTML = "<h2 style='text-align:center;'>Product not found</h2>";
+  } else {
+    document.getElementById("pay-title").textContent = product.title;
+    document.getElementById("pay-price").textContent = "$" + product.price;
+    document.getElementById("pay-img").src = product.img;
+  }
+</script>
+
+<!-- PayPal -->
+<script src="https://www.paypal.com/sdk/js?client-id=Ae44QqBsI8OEkQ-unQvDMoBgf3JUVZsSsbTCIxzkjN-B63tmcn4ql6aEdBr8kZXYPbMUf6UwQnGRG-8k&currency=USD"></script>
+
+<script>
+  if (product) {
+    paypal.Buttons({
+
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              // Convert INR to USD approx (₹80 ≈ $1)
+              value: (product.price ).toFixed(2)
+            },
+            description: product.title
+          }]
+        });
+      },
+
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function () {
+          window.location.href = "thank.html?product=" + productKey;
+        });
+      },
+
+      onCancel: function () {
+        alert("Payment Cancelled");
+      }
+
+    }).render('#paypal-button-container');
+  }
+</script>
+
+</body>
+</html>

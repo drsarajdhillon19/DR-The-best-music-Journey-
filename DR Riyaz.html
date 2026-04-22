@@ -1,0 +1,620 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DR | Riyaz |</title>
+<link rel="stylesheet" href="DRstyle.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="shortcut icon" href="DR css/logo.jpeg" style="border-radius: 50%;" type="image/x-icon">
+
+</head>
+<body>
+
+ 
+
+  <style>
+    :root{
+  --black: #000;
+  --white: #ffffff;
+  --blue: #3b82f6;
+  --grey: #94a3b8;
+  --alice: aliceblue;
+  --yellow: #facc15;
+  --accent: #6ee7b7;
+  --bg-1: #071026;
+  --card: #0b1220;
+  --muted: #94a3b8;
+  --good: #22c55e;
+  --bad: #ef4444;
+}
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: #e6eef6;
+}
+
+#riyaz {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    height: 110vh;
+}
+
+#riyaz .app {
+  width: 960px;
+  max-width: 95vw;
+  background-color:rgb(66, 66, 255);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 18px;
+}
+#riyaz .controls {
+  background: rgb(254, 254, 254);
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+#riyaz .controls h2 { color: black; }
+
+#riyaz .mic-controls {
+    display:flex;
+    gap:10px; 
+    align-items:center; 
+    margin-top:8px; 
+}
+
+#riyaz .mic-btn {
+  background-color:rgb(66, 66, 255);
+  border: 1px solid rgba(110,231,183,0.18);
+  width:44px; height:44px; border-radius:10px;
+  display:inline-grid; place-items:center;
+  cursor:pointer; color:var(--accent); font-size:18px;
+}
+#riyaz .mic-btn:disabled { 
+    opacity:0.34; 
+    cursor:not-allowed; 
+}
+
+#riyaz .mic-btn.active { 
+    box-shadow: 0 6px 20px rgba(34,197,94,0.25); 
+}
+
+#riyaz .mic-btn.stop { 
+    color: var(--bad); 
+    border-color: rgba(0, 0, 0, 0.543); 
+}
+
+label { display:block; font-size:13px; color:rgb(0, 0, 0); margin-top:10px; }
+
+select, input[type="range"] { width:100%; margin-top:6px; }
+
+#riyaz .small { 
+    font-size:13px; 
+    color:black; 
+    margin-top:6px; 
+}
+
+#riyaz .stat { 
+    margin-top:10px; 
+    padding:8px; 
+    border-radius:8px; 
+    background:rgba(255,255,255,0.02); 
+    font-size:13px; color:#3b31f9; 
+}
+
+#riyaz .display { 
+    padding:12px; 
+    border-radius:10px; 
+    background: linear-gradient(180deg,rgba(255,255,255,0.01),transparent); 
+    border:1px solid rgba(255,255,255,0.03); 
+}
+
+#riyaz .canvas-wrap {
+  position:relative;
+  height:560px;
+  border-radius:8px;
+  background: #2b2b35;
+  overflow:hidden;
+}
+canvas { 
+    width:100%; 
+    height:100%; 
+    display:block; 
+}
+
+#riyaz .pointer {
+  position:absolute;
+  left:50%;
+  width:14px; height:14px;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  background: #FFC83D;
+  pointer-events:none;
+  transition: top 0.06s linear;
+  z-index:6;
+}
+#riyaz #analytics {
+  margin-top:10px;
+  padding:8px;
+  background:rgb(0, 0, 0);
+  border-radius:8px;
+  display:none;
+  font-size:13px;
+}
+
+@media (max-width: 768px) {
+  
+    :root{
+  --black: #000;
+  --white: #ffffff;
+  --blue: #3b82f6;
+  --grey: #94a3b8;
+  --alice: aliceblue;
+  --yellow: #facc15;
+  --accent: #6ee7b7;
+  --bg-1: #071026;
+  --card: #0b1220;
+  --muted: #94a3b8;
+  --good: #22c55e;
+  --bad: #ef4444;
+}
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: #e6eef6;
+}
+
+#riyaz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    height: 110vh;
+    position: relative;
+    /* top: -44px; */
+}
+
+#riyaz .app {
+  width: 960px;
+  max-width: 95vw;
+  background-color:rgb(66, 66, 255);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 18px;
+   display: flex;
+    flex-direction: column;
+}
+#riyaz .controls {
+  background: rgb(254, 254, 254);
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+#riyaz .controls img{
+    height: 1cm;
+    width: 1cm;
+    border-radius: 50%;
+}
+
+#riyaz .controls h2 { color: black; }
+
+#riyaz .mic-controls {
+    display:flex;
+    gap:10px; 
+    align-items:center; 
+    margin-top:8px; 
+}
+
+#riyaz .mic-btn {
+  background-color:rgb(66, 66, 255);
+  border: 1px solid rgba(110,231,183,0.18);
+  width:44px; height:44px; border-radius:10px;
+  display:inline-grid; place-items:center;
+  cursor:pointer; color:var(--accent); font-size:18px;
+}
+#riyaz .mic-btn:disabled { 
+    opacity:0.34; 
+    cursor:not-allowed; 
+}
+
+#riyaz .mic-btn.active { 
+    box-shadow: 0 6px 20px rgba(34,197,94,0.25); 
+}
+
+#riyaz .mic-btn.stop { 
+    color: var(--bad); 
+    border-color: rgba(0, 0, 0, 0.543); 
+}
+
+label { display:block; font-size:13px; color:rgb(0, 0, 0); margin-top:10px; }
+
+select, input[type="range"] { width:100%; margin-top:6px; }
+
+#riyaz .small { 
+    font-size:13px; 
+    color:black; 
+    margin-top:6px; 
+}
+
+#riyaz .stat { 
+    margin-top:10px; 
+    padding:8px; 
+    border-radius:8px; 
+    background:rgba(255,255,255,0.02); 
+    font-size:13px; color:#3b31f9; 
+}
+
+#riyaz .display { 
+    padding:4px; 
+    border-radius:10px; 
+    background: white;
+    border:1px solid rgba(255,255,255,0.03); 
+    width: 99%;
+}
+
+#riyaz .canvas-wrap {
+  position:relative;
+  height:670px;
+  border-radius:8px;
+  background: #2b2b35;
+  overflow:hidden;
+}
+canvas { 
+    width:100%; 
+    height:100%; 
+    display:block; 
+}
+
+#riyaz .pointer {
+  position:absolute;
+  left:50%;
+  width:14px; height:14px;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  background: #FFC83D;
+  pointer-events:none;
+  transition: top 0.06s linear;
+  z-index:6;
+}
+#riyaz #analytics {
+  margin-top:10px;
+  padding:8px;
+  background:rgb(0, 0, 0);
+  border-radius:8px;
+  display:none;
+  font-size:13px;
+}
+
+  
+}
+
+  </style>
+
+<section id="header">
+  <a href="#"><img src="DR css/logo.jpeg" class="logo" alt="logo"></a>
+  <div id="mobile">
+  <button id="menu-btn">&#9776;</button>
+  
+</div>
+  <div>
+
+     
+
+    <ul id="navbar">
+                <button id="close-menu" aria-label="Close menu">&times;</button>
+                <li><a  href="DR Home.html" target="_blank">Home</a></li>
+                <li><a class="active" href="DR Riyaz.html" target="_blank">             Riyaz</a></li>
+                <li><a href="DR courses.html" target="_blank">            Courses</a></li>   
+                <li><a href="DR Products user.html" target="_blank">            Products</a></li>   
+                <li><a href="about.html" target="_blank">              About Us</a></li>
+                <li><a href="Contact Us.html" target="_blank">            Contact Us</a></li>
+            </ul>
+  </div>
+</section>
+<section id="riyaz">
+<div class="app">
+  <div class="controls">
+    <h2>Mic & Controls</h2>
+    <div class="mic-controls">
+      <button id="startBtn" class="mic-btn" title="Start Mic"><i class="fas fa-microphone"></i></button>
+      <button id="stopBtn" class="mic-btn stop" title="Stop Mic" disabled><i class="fas fa-microphone-slash"></i></button>
+      <div class="small" id="micStatus">Microphone: stopped</div>
+    </div>
+
+    <label for="zoom">Zoom (visible semitone range)</label>
+    <input id="zoom" type="range" min="12" max="72" value="36"/>
+    <div class="small">Visible semitones: <span id="zoomVal">36</span></div>
+
+    <label for="system">Genre</label>
+    <select id="system">
+      <option value="western">Western</option>
+      <option value="hindustani">Punjabi / Hindustani</option>
+    </select>
+
+    <label for="scaleSelect">Scale / Mode</label>
+    <select id="scaleSelect"></select>
+
+    <label for="keySelect">Key (Root)</label>
+    <select id="keySelect"></select>
+
+    <div class="stat" id="noteInfo"><strong> Note: â€” | Frequency: â€” Hz</strong></div>
+    <div id="analytics"></div>
+  </div>
+
+  <div class="display">
+    <div class="canvas-wrap">
+      <canvas id="scaleCanvas"></canvas>
+      <div id="pointer" class="pointer" style="top:50%"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+ <!-- scripting -->
+    <script src="script.js"></script>
+
+<script>
+  // riyaz
+
+const canvas=document.getElementById("scaleCanvas");
+const ctx=canvas.getContext("2d");
+const pointer=document.getElementById("pointer");
+const startBtn=document.getElementById("startBtn");
+const stopBtn=document.getElementById("stopBtn");
+const micStatus=document.getElementById("micStatus");
+const zoom=document.getElementById("zoom");
+const zoomVal=document.getElementById("zoomVal");
+const system=document.getElementById("system");
+const scaleSelect=document.getElementById("scaleSelect");
+const keySelect=document.getElementById("keySelect");
+const noteInfo=document.getElementById("noteInfo");
+const analyticsDiv=document.getElementById("analytics");
+
+const NOTE_NAMES=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+// Western Scales (10 most common)
+const WESTERN = {
+  "Chromatic": [0,1,2,3,4,5,6,7,8,9,10,11,12],
+  "Major": [0,2,4,5,7,9,11],
+  "Minor": [0,2,3,5,7,8,10],
+  "Harmonic Minor": [0,2,3,5,7,8,11],
+  "Melodic Minor": [0,2,3,5,7,9,11],
+  "Dorian": [0,2,3,5,7,9,10],
+  "Phrygian": [0,1,3,5,7,8,10],
+  "Lydian": [0,2,4,6,7,9,11],
+  "Mixolydian": [0,2,4,5,7,9,10],
+  "Locrian": [0,1,3,5,6,8,10],
+  "Pentatonic Major": [0,2,4,7,9]
+};
+
+// Hindustani Ragas (10 popular ones)
+const HINDUSTANI = {
+  "Bilawal": [0,2,4,5,7,9,11],
+  "Kafi": [0,2,3,5,7,8,10],
+  "Bhairav": [0,1,4,5,7,8,11],
+  "Bhairavi": [0,1,3,5,7,8,10],
+  "Khamaj": [0,2,4,5,7,9,10],
+  "Asavari": [0,2,3,5,7,8,10],
+  "Todi": [0,1,3,6,7,8,11],
+  "Yaman": [0,2,4,6,7,9,11],
+  "Marwa": [0,1,4,6,7,8,11],
+  "Darbari": [0,2,3,5,7,8,11]
+};
+
+function populate(){
+  const map=system.value==="western"?WESTERN:HINDUSTANI;
+  scaleSelect.innerHTML="";
+  Object.keys(map).forEach(k=>{
+    const o=document.createElement("option");
+    o.value=k;o.textContent=k;scaleSelect.appendChild(o);
+  });
+  keySelect.innerHTML="";
+  NOTE_NAMES.forEach(n=>{
+    const o=document.createElement("option");
+    o.value=n;o.textContent=n;keySelect.appendChild(o);
+  });
+  scaleSelect.selectedIndex=0;
+  keySelect.value="C";
+}
+populate();
+
+function midiToFreq(m){return 440*Math.pow(2,(m-69)/12);}
+function freqToMidi(f){return 69+12*Math.log2(f/440);}
+function midiToNoteName(m){const name=NOTE_NAMES[Math.round(m)%12];const oct=Math.floor(m/12)-1;return name+oct;}
+
+function drawScale(){
+  const w=canvas.width=canvas.clientWidth;
+  const h=canvas.height=canvas.clientHeight;
+  ctx.clearRect(0,0,w,h);
+  const range=parseInt(zoom.value);
+  const center=60;
+  const min=center-range/2;
+  const max=center+range/2;
+  const map=system.value==="western"?WESTERN:HINDUSTANI;
+  const pattern=map[scaleSelect.value];
+  const keyIndex=NOTE_NAMES.indexOf(keySelect.value);
+
+  for(let m=Math.floor(min);m<=Math.ceil(max);m++){
+    const rel=(m-keyIndex+12)%12;
+    const inScale=pattern.includes(rel);
+    const y=h-((m-min)/range)*h;
+    ctx.beginPath();
+    ctx.moveTo(10,y);
+    ctx.lineTo(w-10,y);
+    ctx.strokeStyle=inScale?"rgba(255, 255, 255, 1)":"rgba(255,255,255,0.05)";
+    ctx.stroke();
+    if(inScale){ctx.fillStyle="aliceblue";ctx.fillText(midiToNoteName(m),15,y-2);}
+  }
+}
+drawScale();
+
+let audioContext=null, analyser=null, src=null, raf=null, stream=null;
+let detections=[];
+const bufSize=2048;
+function autoCorrelate(buf,sr){
+  let SIZE=buf.length;let rms=0;
+  for(let i=0;i<SIZE;i++){rms+=buf[i]*buf[i];}
+  rms=Math.sqrt(rms/SIZE);
+  if(rms<0.01)return -1;
+  const c=new Array(SIZE).fill(0);
+  for(let i=0;i<SIZE;i++){for(let j=0;j<SIZE-i;j++){c[i]+=buf[j]*buf[j+i];}}
+  let d=0;while(c[d]>c[d+1])d++;
+  let maxval=-1,maxpos=-1;
+  for(let i=d;i<SIZE;i++){if(c[i]>maxval){maxval=c[i];maxpos=i;}}
+  if(maxpos===-1)return -1;
+  let freq=sr/maxpos;
+  if(freq>2000||freq<20)return -1;
+  return freq;
+}
+
+function updatePitch(){
+  if(!audioContext)return;
+  const buf=new Float32Array(bufSize);
+  analyser.getFloatTimeDomainData(buf);
+  const freq=autoCorrelate(buf,audioContext.sampleRate);
+  if(freq!==-1){
+    const midi=freqToMidi(freq);
+    const range=parseInt(zoom.value);
+    const center=60;
+    const min=center-range/2;
+    const max=center+range/2;
+    const y=canvas.height-((midi-min)/range)*canvas.height;
+    const map=system.value==="western"?WESTERN:HINDUSTANI;
+    const pattern=map[scaleSelect.value];
+    const keyIndex=NOTE_NAMES.indexOf(keySelect.value);
+    const rel=(Math.round(midi)-keyIndex+12)%12;
+    const inScale=pattern.includes(rel);
+
+    pointer.style.top=`${y}px`;
+    pointer.style.background=inScale?"var(--good)":"var(--bad)";
+    noteInfo.innerHTML=`Note: <b>${midiToNoteName(midi)}</b> | Frequency: <b>${freq.toFixed(1)} Hz</b>`;
+    detections.push({inScale});
+  }
+  raf=requestAnimationFrame(updatePitch);
+}
+
+startBtn.onclick=async()=>{
+  if(audioContext)return;
+  try{
+    stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    audioContext=new AudioContext();
+    analyser=audioContext.createAnalyser();
+    analyser.fftSize=bufSize;
+    src=audioContext.createMediaStreamSource(stream);
+    src.connect(analyser);
+    micStatus.textContent="Microphone: running";
+    startBtn.disabled=true;
+    stopBtn.disabled=false;
+    startBtn.classList.add("active");
+    detections=[];
+    drawScale();
+    updatePitch();
+  }catch(e){
+    alert("Mic access denied.");
+  }
+};
+
+stopBtn.onclick=()=>{
+  if(!audioContext)return;
+  audioContext.close();
+  audioContext=null;
+  if(stream) stream.getTracks().forEach(t=>t.stop());
+  cancelAnimationFrame(raf);
+  startBtn.disabled=false;
+  stopBtn.disabled=true;
+  startBtn.classList.remove("active");
+  micStatus.textContent="Microphone: stopped";
+  showAnalytics();
+};
+
+function showAnalytics(){
+  if(detections.length===0)return;
+  let correct=detections.filter(d=>d.inScale).length;
+  let wrong=detections.length-correct;
+  let acc=((correct/detections.length)*100).toFixed(1);
+  analyticsDiv.style.display="block";
+  analyticsDiv.innerHTML=`<b>Session Report:</b><br>
+  âœ… Correct: ${correct}<br>
+  âŒ Wrong: ${wrong}<br>
+  ðŸŽ¯ Accuracy: <b style="color:${acc>70?'var(--good)':'var(--bad)'}">${acc}%</b>`;
+}
+
+zoom.oninput=()=>{zoomVal.textContent=zoom.value;drawScale();};
+system.onchange=()=>{populate();drawScale();};
+scaleSelect.onchange=drawScale;
+keySelect.onchange=drawScale;
+
+
+
+</script>
+
+<!-- nav script -->
+
+ <script>
+const menuBtn = document.getElementById("menu-btn");
+const navbar = document.getElementById("navbar");
+const closeMenu = document.getElementById("close-menu");
+
+menuBtn.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+});
+
+closeMenu.addEventListener("click", () => {
+  navbar.classList.remove("active");
+});
+</script>
+
+<hr>
+
+<footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="DR css/logo.jpeg" alt="DR">
+            <h4>Contact us</h4>
+            <p>
+                <strong>Email:</strong>
+                drsarajdhillon19@gmail.com
+            </p>
+            <p>
+                <strong>Instagram:</strong>
+                saraj_singh1914
+            </p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i herf="" class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About Us</h4>
+            <a href="#">About Us</a>
+            <a href="#">Services prices</a>
+            <a href="#">Music production</a>
+            <a href="#">Mixing & Mastering</a>
+            <a href="#">Contact  Us</a>
+        </div>
+        
+        <div class="col">
+            <h4>My account</h4>
+            <a href="#">Sign in</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="copyright">
+            <p>Â© 2025,DR - HTML CSS ecommerce template</p>
+        </div>
+    </footer>
+</body>
+</html>
+

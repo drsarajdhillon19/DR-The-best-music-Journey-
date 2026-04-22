@@ -1,0 +1,177 @@
+﻿ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR | Products |</title>
+    <link rel="stylesheet" href="DRstyle.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="shortcut icon" href="DR css/logo.jpeg" style="border-radius: 50%;" type="image/x-icon">
+</head>
+<body>
+    <!-- scripting -->
+    <script src="Script.js"></script>
+
+    <!-- logo  -->
+    <section id="header">
+        <a href="#"><img src="DR css/logo.jpeg" class="logo" alt="logo"></a>
+        <div id="mobile">
+  <button id="menu-btn">&#9776;</button>
+</div>
+        <!-- navbar  -->
+        <div>
+            
+            <ul id="navbar">
+                <button id="close-menu" aria-label="Close menu">&times;</button>
+                <li><a  href="DR Home.html" target="_blank">Home</a></li>
+                <li><a href="DR Riyaz.html" target="_blank">             Riyaz</a></li>
+                <li><a href="DR courses.html" target="_blank">            Courses</a></li>   
+                <li><a class="active"  href="DR Products user.html" target="_blank">Products</a></li>   
+                <li><a href="about.html" target="_blank">              About Us</a></li>
+                <li><a href="Contact Us.html" target="_blank">            Contact Us</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+const menuBtn = document.getElementById("menu-btn");
+const navbar = document.getElementById("navbar");
+const closeMenu = document.getElementById("close-menu");
+
+menuBtn.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+});
+
+closeMenu.addEventListener("click", () => {
+  navbar.classList.remove("active");
+});
+</script>
+
+   <section id="sample-packs">
+     <h4>Very Cheap Products</h4>
+     <h2>Products</h2>
+     <h1>By DR</h1>
+     <p>Save Money using coupens</p>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Our Products</h2>
+        <p>Brilliant products in cheap prices</p>
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='Buy.html?product=samplepack';">
+
+                <img src="certificates/DR SAMPLE PACK.png" alt="sp">
+                <div class="des">
+                    <span>DR</span>
+                    <h5>DR Complete Sample Pack[₹39]</h5>
+                    <h4>$0.43</h4>
+                </div>
+            </div>
+
+           <div class="pro" onclick="window.location.href='Buy.html?product=soundpack';">
+                <img src="DR css/DR SOUND PACK.png" alt="sp">
+                <div class="des">
+                    <span>DR</span>
+                    <h5>DR Sound pack l presets[₹55]</h5>
+                    <h4>$0.6</h4>
+                </div>
+            </div>
+          
+       
+            <div class="pro" onclick="window.location.href='Buy.html?product=demand';">
+                <img src="certificates/DEMAND [DR Beat 1].png" alt="sp">
+                <div class="des">
+                    <span>DR</span>
+                    <h5>DR Beat | Demand |</h5>
+                    <h4>$0</h4>
+                </div>
+                
+            </div>
+        </div>
+        <div class="pro-container">
+            
+           <div class="pro" onclick="window.location.href='Buy.html?product=chordsmidi';">
+                <img src="DR css/Chords midi png.png" alt="sp">
+                <div class="des">
+                    <span>DR</span>
+                    <h5>DR Chords midi pack[₹64]</h5>
+                    <h4>$0.7</h4>
+                </div>
+            </div>
+       
+            <div class="pro" onclick="window.location.href='Buy.html?product=Voxchain';">
+                <img src="certificates/VMC.png" alt="sp">
+                <div class="des">
+                    <span>DR</span>
+                    <h5>DR Vocal mix chain | Pro | [₹99]</h5>
+                    <h4>$1.08</h4>
+                </div>
+                
+            </div>
+            <div class="pro" onclick="window.location.href='Buy.html?product=DMCP';">
+                <img src="certificates/DMCP.png" alt="sp">
+                <div class="des">
+                    <span>DR</span>
+                    <h5>DR Drums mix chain | Pro | [₹75]</h5>
+                    <h4>$0.7999</h4>
+                </div>
+                
+            </div>
+        </div>
+        <h1>WAIT FOR NEW PRODUCTS</h1>
+
+        
+    </section>
+
+  <!-- scripting -->
+    <script src="Buy.html"></script>
+
+<hr>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="DR css/logo.jpeg" alt="DR">
+            <h4>Contact us</h4>
+            <p>
+                <strong>Email:</strong>
+                drsarajdhillon19@gmail.com
+            </p>
+            <p>
+                <strong>Instagram:</strong>
+                saraj_singh1914
+            </p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i herf="" class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About Us</h4>
+            <a href="#">About Us</a>
+            <a href="#">Services prices</a>
+            <a href="#">Music production</a>
+            <a href="#">Mixing & Mastering</a>
+            <a href="#">Contact  Us</a>
+        </div>
+        
+        <div class="col">
+            <h4>My account</h4>
+            <a href="#">Sign in</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="copyright">
+            <p>Â© 2025,DR - HTML CSS ecommerce template</p>
+        </div>
+    </footer>
+</body>
+</html>
+ 
+ 
+ 
+ 
+

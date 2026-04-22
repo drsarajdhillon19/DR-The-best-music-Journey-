@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR | About us |</title>
+    <link rel="stylesheet" href="DRstyle.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="shortcut icon" href="DR css/logo.jpeg" style="border-radius: 50%;" type="image/x-icon">
+</head>
+<body>
+    <!-- scripting -->
+    <script src="script.js"></script>
+
+    <!-- logo  -->
+    <section id="header">
+        <a href="#"><img src="DR css/logo.jpeg" class="logo" alt="logo"></a>
+        <div id="mobile">
+  <button id="menu-btn">&#9776;</button>
+  
+</div>
+        <!-- navbar  -->
+        <div>
+             
+            <ul id="navbar">
+                <button id="close-menu" aria-label="Close menu">&times;</button>
+                <li><a  href="DR Home.html" target="_blank">Home</a></li>
+                <li><a href="DR Riyaz.html" target="_blank">             Riyaz</a></li>
+                <li><a href="DR courses.html" target="_blank">            Courses</a></li>   
+                <li><a  href="DR Products user.html" target="_blank">            Products</a></li>   
+                <li><a class="active" href="about.html" target="_blank">              About Us</a></li>
+                <li><a href="Contact Us.html" target="_blank">            Contact Us</a></li>
+            </ul>
+        </div>
+    </section>
+    <script>
+const menuBtn = document.getElementById("menu-btn");
+const navbar = document.getElementById("navbar");
+const closeMenu = document.getElementById("close-menu");
+
+menuBtn.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+});
+
+closeMenu.addEventListener("click", () => {
+  navbar.classList.remove("active");
+});
+</script>
+
+    <section id="about">
+     <h2>#KNOW ABOUT</h2>
+     <h1> DR</h1>
+     <h5>Best Journey to Music world</h5>
+    </section>
+
+    <section id="services">
+        <div class="fe-box">
+            <img src="DR css/bg.12.jpg" alt="mp">
+            <h6>Online Music production</h6>
+            <h5>â‚¹3499</h5>
+            <li><a href="Contact Us.html" target="_blank">Contact Us</a></li>
+        </div>
+
+        <div class="fe-box">
+            <img src="DR css/bg.6.jpg" alt="mp">
+            <h6>Mixing & Mastering</h6>
+            <h5>â‚¹4499</h5>
+            <li><a href="Contact Us.html" target="_blank">Contact Us</a></li>
+        </div>
+
+        <div class="fe-box">
+            <img src="DR css/bg.11.jpg" alt="mp">
+            <h6>Music Composition</h6>
+            <h5>â‚¹199</h5>
+            <li><a href="Contact Us.html" target="_blank">Contact Us</a></li>
+        </div>
+
+        <div class="fe-box">
+            <img src="DR css/bg.10.jpg" alt="mp">
+            <h6>Punjabi Lyrics writting</h6>
+           <h5>â‚¹999</h5>
+            <li><a href="Contact Us.html" target="_blank">Contact Us</a></li>
+        </div>
+
+        <div class="fe-box">
+            <img src="DR css/bg.14.jpg" alt="mp">
+            <h6>Sound Design</h6>
+           <h5>â‚¹3999</h5>
+            <li><a href="Contact Us.html" target="_blank">Contact Us</a></li>
+        </div>
+    </section>
+
+
+<hr>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="DR css/logo.jpeg" alt="DR">
+            <h4>Contact us</h4>
+            <p>
+                <strong>Email:</strong>
+                drsarajdhillon19@gmail.com
+            </p>
+            <p>
+                <strong>Instagram:</strong>
+                saraj_singh1914
+            </p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i herf="" class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About Us</h4>
+            <a href="#">About Us</a>
+            <a href="#">Services prices</a>
+            <a href="#">Music production</a>
+            <a href="#">Mixing & Mastering</a>
+            <a href="#">Contact  Us</a>
+        </div>
+        
+        <div class="col">
+            <h4>My account</h4>
+            <a href="#">Sign in</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="copyright">
+            <p>Â© 2025,DR - HTML CSS ecommerce template</p>
+        </div>
+    </footer>
+</body>
+</html>
+

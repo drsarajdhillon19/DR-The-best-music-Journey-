@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR | Courses |</title>
+    <link rel="stylesheet" href="DRstyle.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="shortcut icon" href="DR css/logo.jpeg" style="border-radius: 50%;" type="image/x-icon">
+</head>
+<body>
+    <!-- scripting -->
+    <script src="script.js"></script>
+
+    <!-- logo  -->
+    <section id="header">
+        <a href="#"><img src="DR css/logo.jpeg" class="logo" alt="logo"></a>
+        <div id="mobile">
+      <button id="menu-btn">&#9776;</button>
+    </div>
+        <!-- navbar  -->
+        <div>
+           <ul id="navbar">
+                <button id="close-menu" aria-label="Close menu">&times;</button>
+                <li><a  href="DR Home.html" target="_blank">Home</a></li>
+                <li><a href="DR Riyaz.html" target="_blank">             Riyaz</a></li>
+                <li><a class="active" href="DR courses.html" target="_blank">            Courses</a></li>   
+                <li><a href="DR Products user.html" target="_blank">            Products</a></li>   
+                <li><a href="about.html" target="_blank">              About Us</a></li>
+                <li><a href="Contact Us.html" target="_blank">            Contact Us</a></li>
+            </ul>
+        </div>
+    </section>
+    <script>
+const menuBtn = document.getElementById("menu-btn");
+const navbar = document.getElementById("navbar");
+const closeMenu = document.getElementById("close-menu");
+
+menuBtn.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+});
+
+closeMenu.addEventListener("click", () => {
+  navbar.classList.remove("active");
+});
+</script>
+
+     <section id="courses">
+     <h4>Very Cheap Products</h4>
+     <h2>Advance Courses</h2>
+     <h1>By DR</h1>
+     <p>Save Money using coupens</p>
+    </section>
+
+     <section id="product1" class="section-p1">
+        <h2>Our Products</h2>
+        <p>Brilliant products in cheap prices</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="DR css/bmpc.jpg" alt="sp">
+                <div class="des">
+                    <span>DR</span>
+                    <h5>Basic Music production course</h5>
+                    <h4>â‚¹0</h4>
+                </div>
+                <a href="https://www.youtube.com/watch?v=S15meWT8x-8&list=PLNtC_cwO6Tq7g_NV8rfK6L7rfqOBBov7I" target="_blank"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="DR css/bg.22.jpg" alt="sp">
+                <div class="des">
+                    <span>DR</span>
+                    <h5>Advance Music Theory course</h5>
+                    <h4>â‚¹0</h4>
+                </div>
+                <a href="https://www.youtube.com/watch?v=V-Te05GD8W0&list=PLNtC_cwO6Tq5HZVR5JL5qjwjPe6N2PCxk" target="_blank"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+        </div>
+
+        <!-- Login Popup -->
+
+
+    </section>
+    
+<hr>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="DR css/logo.jpeg" alt="DR">
+            <h4>Contact us</h4>
+            <p>
+                <strong>Email:</strong>
+                drsarajdhillon19@gmail.com
+            </p>
+            <p>
+                <strong>Instagram:</strong>
+                saraj_singh1914
+            </p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i herf="" class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About Us</h4>
+            <a href="#">About Us</a>
+            <a href="#">Services prices</a>
+            <a href="#">Music production</a>
+            <a href="#">Mixing & Mastering</a>
+            <a href="#">Contact  Us</a>
+        </div>
+        
+        <div class="col">
+            <h4>My account</h4>
+            <a href="#">Sign in</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="copyright">
+            <p>Â© 2025,DR - HTML CSS ecommerce template</p>
+        </div>
+    </footer>
+</body>
+</html>
+

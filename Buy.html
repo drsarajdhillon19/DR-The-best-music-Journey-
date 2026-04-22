@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR | Buy |</title>
+    <link rel="stylesheet" href="DRstyle.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="shortcut icon" href="DR css/logo.jpeg" style="border-radius: 50%;" type="image/x-icon">
+</head>
+<body>
+    <!-- scripting -->
+    <script src="Script.js"></script>
+
+    <!-- logo  -->
+    <section id="header">
+        <a href="#"><img src="DR css/logo.jpeg" class="logo" alt="logo"></a>
+        <!-- navbar  -->
+        <div>
+            <ul id="navbar">
+                <li><a  href="DR Home.html" target="_blank">Home</a></li>
+                <li><a href="DR Songs.html" target="_blank">DR Songs</a></li>
+                <li><a href="DR Riyaz.html" target="_blank">Riyaz</a></li>
+                <li><a href="DR courses.html" target="_blank">Courses</a></li>   
+                <li><a class="active" href="DR Products.html" target="_blank">Buy products</a></li>   
+                <li><a href="about.html" target="_blank">About Us</a></li>
+                <li><a href="Contact Us.html" target="_blank">Contact Us</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="buy-page" class="section-p1">
+        <div class="pro-container">
+            <div class="pro">
+                <img id="product-image" src="" alt="product">
+                <div class="des">
+                    <span>DR</span>
+                    <h5 id="product-title"></h5>
+                    <p id="product-desc"></p>
+                    <h4 id="product-price"></h4>
+                    <button id="buy-btn" style="margin-top:10px;">Buy Now</button>
+
+                    <div style="margin-top:15px;">
+                      <p><strong>Already have a licence key?</strong></p>
+                      <input type="text" id="license-input" placeholder="Enter licence key"
+                             style="padding:8px;width:200px;">
+                      <button id="license-btn" style="margin-left:5px;">Verify</button>
+                      <p id="license-msg" style="margin-top:8px;"></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="DR css/logo.jpeg" alt="DR">
+            <h4>Contact us</h4>
+            <p><strong>Email:</strong> drsarajdhillon19@gmail.com</p>
+            <p><strong>Instagram:</strong> saraj_singh1914</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About Us</h4>
+            <a href="#">About Us</a>
+            <a href="#">Services prices</a>
+            <a href="#">Music production</a>
+            <a href="#">Mixing & Mastering</a>
+            <a href="#">Contact Us</a>
+        </div>
+        
+        <div class="col">
+            <h4>My account</h4>
+            <a href="#">Sign in</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="copyright">
+            <p>© 2025, DR - HTML CSS ecommerce template</p>
+        </div>
+    </footer>
+
+    <!-- Dynamic Script -->
+   
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const params = new URLSearchParams(window.location.search);
+  const productKey = params.get("product");
+
+  /* ================= PRODUCTS ================= */
+
+  const products = {
+    samplepack: {
+      title: "DR Complete Sample Pack",
+      desc: "High-quality DR samples for your next hit song.",
+      price: "$0.43",
+      img: "certificates/DR SAMPLE PACK.png",
+      payment: "pay.html?product=samplepack"
+    },
+    soundpack: {
+      title: "DR Sound Pack | Presets",
+      desc: "Exclusive DR sound presets for synths and plugins.",
+      price: "$0.6",
+      img: "DR css/DR SOUND PACK.png",
+      payment: "pay.html?product=soundpack"
+    },
+    demand: {
+      title: "DR Beat | Demand |",
+      desc: "Free DR beat for your creative journey.",
+      price: "$0",
+      img: "certificates/DEMAND [DR Beat 1].png",
+      payment: "pay.html?product=demand"
+    },
+     chordsmidi: {
+      title: "DR Chords midi Pack",
+      desc: "Exclusive DR Chords midi for synths and plugins.",
+      price: "$0.7",
+      img: "DR css/Chords midi png.png",
+      payment: "pay.html?product=chordsmidi"
+    }, 
+     Voxchain: {
+      title: "DR Vocal mix chain | Pro |",
+      desc: "Exclusive DR Pro mix chain for both RAP and MELODIC vox.",
+      price: "$1.08",
+      img: "certificates/VMC.png",
+      payment: "pay.html?product=Voxchain"
+    },
+     DMCP: {
+      title: "DR Drums mix chain Pro",
+      desc: "Exclusive DR Pro mix chain for Drums.",
+      price: "$0.7999",
+      img: "certificates/DMCP.png",
+      payment: "pay.html?product=DMCP"
+    }
+  };
+
+  const product = products[productKey];
+
+  if (!product) {
+    document.getElementById("buy-page").innerHTML = "<h2>Product not found.</h2>";
+    return;
+  }
+
+  document.getElementById("product-title").textContent = product.title;
+  document.getElementById("product-desc").textContent = product.desc;
+  document.getElementById("product-price").textContent = product.price;
+  document.getElementById("product-image").src = product.img;
+
+  document.getElementById("buy-btn").onclick = () => {
+    window.location.href = product.payment;
+  };
+
+  /* ================= LICENCE SYSTEM ================= */
+
+  const licenseDB = {
+    "DR-SP-12194-1p": {
+      product: "samplepack",
+      download: "products/DR sample pack 1.zip"
+    },
+    "DR-SD-fl25-2p": {
+      product: "soundpack",
+      download: "products/DR sound pack fl presets.zip"
+    },
+    "DR-CM-26m-3p": {
+      product: "chordsmidi",
+      download: "products/DR sound pack fl presets.zip"
+    },
+    "DR-VMC-FL26-RS": {
+      product: "Voxchain",
+      download: "products/DR Vocal Mix chain.zip"
+    },
+    "DR-DMCp-FL26.1-RS75": {
+      product: "DMCP",
+      download: "products/DR Drums Mix Chain Pro.zip"
+    }
+  };
+
+  document.getElementById("license-btn").onclick = () => {
+
+    const enteredKey = document.getElementById("license-input").value.trim();
+    const msg = document.getElementById("license-msg");
+
+    if (!enteredKey) {
+      msg.textContent = "Please enter a licence key.";
+      msg.style.color = "red";
+      return;
+    }
+
+    const license = licenseDB[enteredKey];
+
+    if (license && license.product === productKey) {
+      msg.textContent = "Licence verified! Download starting...";
+      msg.style.color = "green";
+
+      setTimeout(() => {
+        window.location.href = license.download;
+      }, 1000);
+
+    } else {
+      msg.textContent = "Invalid licence key for this product.";
+      msg.style.color = "red";
+    }
+  };
+
+});
+</script>
+
+
+</body>
+</html>

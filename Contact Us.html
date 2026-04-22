@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DR | Contact |</title>
+  <link rel="stylesheet" href="DRstyle.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="shortcut icon" href="DR css/logo.jpeg" style="border-radius: 50%;" type="image/x-icon">
+</head>
+<body>
+  <!-- Header Section -->
+  <section id="header">
+    <a href="#"><img src="DR css/logo.jpeg" class="logo" alt="logo"></a>
+    <div id="mobile">
+      <button id="menu-btn">&#9776;</button>
+    </div>
+    <div>
+      <ul id="navbar">
+                <button id="close-menu" aria-label="Close menu">&times;</button>
+                <li><a  href="DR Home.html" target="_blank">Home</a></li>
+                <li><a href="DR Riyaz.html" target="_blank">             Riyaz</a></li>
+                <li><a href="DR courses.html" target="_blank">            Courses</a></li>   
+                <li><a  href="DR Products user.html" target="_blank">            Products</a></li>   
+                <li><a  href="about.html" target="_blank">              About Us</a></li>
+                <li><a class="active" href="Contact Us.html" target="_blank">            Contact Us</a></li>
+    </div>
+  </section>
+ <script>
+const menuBtn = document.getElementById("menu-btn");
+const navbar = document.getElementById("navbar");
+const closeMenu = document.getElementById("close-menu");
+
+menuBtn.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+});
+
+closeMenu.addEventListener("click", () => {
+  navbar.classList.remove("active");
+});
+</script>
+  <section id="contact">
+    <h2>#Lets talk</h2>
+    <h1>DR</h1>
+    <h5>Best Journey to Music world</h5>
+  </section>
+
+
+
+  <!-- ðŸ’¬ Chat Section -->
+  <section id="chat-section">
+    <div class="chat-container">
+      <div class="chat-header">Chat with DR</div>
+      <div class="chat-body" id="chat-body"></div>
+      <div class="chat-footer">
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer class="section-p1">
+    <div class="col">
+      <img class="logo" src="DR css/logo.jpeg" alt="DR">
+      <h4>Contact us</h4>
+      <p><strong>Email:</strong> drsarajdhillon19@gmail.com</p>
+      <p><strong>Instagram:</strong> saraj_singh1914</p>
+      <div class="follow">
+        <h4>Follow Us</h4>
+        <div class="icon">
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-youtube"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h4>About Us</h4>
+      <a href="#">About Us</a>
+      <a href="#">Services prices</a>
+      <a href="#">Music production</a>
+      <a href="#">Mixing & Mastering</a>
+      <a href="#">Contact Us</a>
+    </div>
+    
+    <div class="col">
+      <h4>My account</h4>
+      <a href="#">Sign in</a>
+      <a href="#">Help</a>
+    </div>
+
+    <div class="copyright">
+      <p>Â© 2025, DR - HTML CSS ecommerce template</p>
+    </div>
+  </footer>
+
+  <script>
+    const chatBody = document.getElementById("chat-body");
+    const userInput = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+
+    const services = {
+      "Music Production": "We offer <strong>ONLINE</strong> music production â€” send your vocals to us online we wil create your music in 7-9 days.we will not offer mixing and mastering in this service .  MY email is :<strong>drsarajdhillon19@gmail.com</strong> ",
+      "Sound design": "Our Sound design service helps you to come in industry with awewsome sounds and new touch. MY email is :<strong>drsarajdhillon19@gmail.com</strong> ",
+      "Mixing & Mastering": "<strong>SORRY</strong>,Our mixing engeniers are busy nowadays.As soon as they will free we will contact you. MY email is :<strong>drsarajdhillon19@gmail.com</strong> ",
+      "Music composition": "Get custom compositions tailored to your style â€” hip-hop, pop, classical, or fusion. MY email is :<strong>drsarajdhillon19@gmail.com</strong> ",
+      "Punjabi lyrics writting": "Get punjabi lyrics for cheap prices. MY email is :<strong>drsarajdhillon19@gmail.com</strong> ",
+      "Any Query ": "If you have any <strong>PROBLEM</strong> contact us on instagram or email. MY email is :<strong>drsarajdhillon19@gmail.com</strong> "
+    };
+
+    // Initial message
+    window.onload = () => {
+      addBotMessage("ðŸ‘‹ Hi there! Welcome to <strong>DR</strong>.<br>Type a message or click Send to start chatting.");
+    };
+
+    sendBtn.addEventListener("click", () => {
+      const text = userInput.value.trim() || "Hi";
+      addUserMessage(text);
+      userInput.value = "";
+      setTimeout(() => showServiceOptions(), 600);
+    });
+
+    function addUserMessage(msg) {
+      const div = document.createElement("div");
+      div.className = "message user-message";
+      div.textContent = msg;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function addBotMessage(msg) {
+      const div = document.createElement("div");
+      div.className = "message bot-message";
+      div.innerHTML = msg;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function showServiceOptions() {
+      addBotMessage("Here are our main services ðŸ‘‡:");
+      Object.keys(services).forEach(service => {
+        const btn = document.createElement("div");
+        btn.className = "service-option";
+        btn.textContent = service;
+        btn.onclick = () => showServiceDetails(service);
+        chatBody.appendChild(btn);
+      });
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function showServiceDetails(service) {
+      const msg = `
+        <strong>${service}</strong><br>${services[service]}
+        <div class="contact-buttons">
+          <button onclick="contactMe('instagram')"><i class='fab fa-instagram'></i> Talk on Instagram</button>
+          <button id="email-btn" onclick="contactMe('email')"><i class='fas fa-envelope'></i> Talk on Email</button>
+        </div>`;
+      addBotMessage(msg);
+    }
+
+    function contactMe(platform) {
+      if (platform === "email") {
+        document.getElementById("email-btn").addEventListener("click", () => {
+    const recipient = "drsarajdhillon19@gmail.com";
+    const subject = "Hello from your website!";
+    const body = "Type your message here...";
+    
+    // Gmail compose URL
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Open in new tab
+    window.open(gmailUrl, "_blank");
+});
+      } else if (platform === "instagram") {
+        window.open("https://www.instagram.com/saraj_singh1914", "_blank");
+        
+      }
+      console.log(`User clicked to contact you on ${platform}`);
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="DRstyle.css">
+  <link rel="shortcut icon" href="DR css/logo.jpeg" type="image/x-icon">
+  <title>Thank You | DR </title>
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .thank-box {
+      width: 420px;
+      background: #fff;
+      padding: 30px;
+      margin-left: 12cm;
+      text-align: center;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      border: 1px solid #333;
+    }
+
+    .thank-box img {
+      width: 120px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #111;
+    }
+
+    p {
+      font-size: 16px;
+      color: #444;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #004cff;
+      color: #fff;
+      text-decoration: none;
+      font-size: 17px;
+      margin-top: 20px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .download-btn:hover {
+      background: #4d82fc;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <section id="header">
+      <a href="#"><img src="DR css/logo.jpeg" class="logo" alt="logo"></a>
+
+      <div>
+          <ul id="navbar">
+              <li><a href="DR Home.html" target="_blank">Home</a></li>
+              <li><a href="DR Riyaz.html" target="_blank">Riyaz</a></li>
+              <li><a href="DR courses.html" target="_blank">Courses</a></li>   
+              <li><a class="active" href="DR Products user.html" target="_blank">Thanks</a></li>   
+              <li><a href="about.html" target="_blank">About Us</a></li>
+              <li><a href="Contact Us.html" target="_blank">Contact Us</a></li>
+          </ul>
+      </div>
+  </section>
+
+  <!-- THANK YOU BOX -->
+  <div class="thank-box">
+      <img id="t-img" src="" alt="Product Image">
+      <h2 id="t-title">Thank You!</h2>
+
+      <!-- hidden input for product ID -->
+      <input type="hidden" id="product-id" value="">
+
+      <p>Your purchase was successful. Download will start automatically.</p>
+
+      <a id="download-link" class="download-btn" href="#" download>Download Product</a>
+  </div>
+
+
+  <!-- JAVASCRIPT LOGIC -->
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ================= PRODUCTS ================= */
+
+  const products = {
+    samplepack: {
+      id: "samplepack",
+      title: "DR Complete Sample Pack",
+      img: "./certificates/DR SAMPLE PACK.png",
+      file: "https://drive.google.com/drive/folders/10xEKrju6eJRRdE54rkPanK-puZldSKtd?usp=drive_link"
+    },
+    soundpack: {
+      id: "soundpack",
+      title: "DR Sound Pack | Presets",
+      img: "./DR css/DR SOUND PACK.png",
+      file: "products/DR sound pack fl presets.zip"
+    },
+    demand: {
+      id: "demand",
+      title: "DR Beat | Demand |",
+      img: "./certificates/DEMAND [DR Beat 1].png",
+      file: "products/DR DEMAND beat.zip"
+    },
+    chordsmidi: {
+      id: "chordsmidi",
+      title: "DR Chords midi Pack",
+      img: "./DR css/Chords midi png.png",
+      file: "products/Chord midi pack.zip"
+    },
+    Voxchain: {
+      id: "Voxchain",
+      title: "DR Vocal mix chain | Pro |",
+      img: "certificates/VMC.png",
+      file: "products/DR Vocal Mix chain.zip"
+    },
+    DMCP: {
+      id: "DMCP",
+      title: "DR Vocal mix chain | Pro |",
+      img: "certificates/DMCP.png",
+      file: "products/DR Drums Mix Chain Pro.zip"
+    },
+  };
+
+  /* ================= LICENCE KEYS (MANUAL) ================= */
+
+  const licenceKeys = {
+    samplepack: "DR-SP-12194-1p",
+    soundpack: "DR-SD-fl25-2p",
+    chordsmidi: "DR-CM-26m-3p",
+    demand: "DR-DM-0000-0p",
+    Voxchain: "DR-VMC-FL26-RS",
+    Voxchain: "DR-DMCp-FL26.1-RS75"
+  };
+
+  /* ================= URL PRODUCT ================= */
+
+  const params = new URLSearchParams(window.location.search);
+  const key = params.get("product");
+  const product = products[key];
+
+  if (!product) {
+    document.querySelector(".thank-box").innerHTML =
+      "<h2>Product Not Found</h2>";
+    return;
+  }
+
+  /* ================= UI UPDATE ================= */
+
+  document.getElementById("t-img").src = product.img;
+  document.getElementById("t-title").textContent = product.title;
+  document.getElementById("product-id").value = product.id;
+
+  const downloadBtn = document.getElementById("download-link");
+  downloadBtn.href = product.file;
+
+  /* ================= LICENCE FILE FUNCTION ================= */
+
+  function downloadLicenceFile(product) {
+
+    const licenceKey = licenceKeys[product.id] || "DR-DEFAULT-0000";
+
+    const content =
+`DR OFFICIAL PRODUCT LICENCE
+==================================================
+
+Product Name : ${product.title}
+Licence Key  : ${licenceKey}
+Issued Date  : ${new Date().toLocaleDateString()}
+
+Licensed To  : Individual Use Only
+Issued By    : DR 
+
+Website      : https://dr.com
+
+--------------------------------------------------
+LICENCE TERMS & CONDITIONS
+--------------------------------------------------
+
+• This licence is for one user only
+• Reselling or sharing is not allowed
+• Commercial use is allowed
+• DR can revoke licence if misuse found
+
+--------------------------------------------------
+SUPPORT
+--------------------------------------------------
+
+Email: drsarajdhillon19@gmail.com
+
+--------------------------------------------------
+© ${new Date().getFullYear()} DR 
+All Rights Reserved.
+==================================================`;
+
+    const blob = new Blob([content], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `DR-LICENSE-${product.id}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    return licenceKey;
+  }
+
+  /* ================= AUTO DOWNLOAD ================= */
+
+  // Product file download
+  setTimeout(() => {
+    const a = document.createElement("a");
+    a.href = product.file;
+    a.download = "";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }, );
+
+  // Licence file download
+  setTimeout(() => {
+    const keyGenerated = downloadLicenceFile(product);
+
+    let purchased = JSON.parse(localStorage.getItem("purchasedProducts")) || [];
+
+    if (!purchased.find(p => p.id === product.id)) {
+      purchased.push({
+        ...product,
+        licence: keyGenerated
+      });
+    }
+
+    localStorage.setItem("purchasedProducts", JSON.stringify(purchased));
+
+  }, ); // ✅ FIXED missing time
+
+});
+</script>
+</body>
+</html>
